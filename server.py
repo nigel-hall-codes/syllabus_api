@@ -19,11 +19,14 @@ def test():
     cv2.imwrite(f"received_syllabuses/img_{uuid.uuid4()}.jpg", img)
     # do some fancy processing here....
 
+
+
     # build a response dict to send back to client
     response = {'message': 'image received. size={}x{}'.format(img.shape[1], img.shape[0])
                 }
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
+
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
